@@ -14,7 +14,7 @@ const bass =
     .gain(0.5)
 
 const guitar =
-  note("c <eb e2> g <c4 f3<f4 g4>>")
+  note("c <eb e3> g <c4 f3<f4 g4>>")
     .clip(4)
     .s("gm_electric_guitar_clean")
 
