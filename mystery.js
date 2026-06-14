@@ -26,7 +26,7 @@ $: note("c4 <e4 eb4> f4 <bb4 bb3>")
   .sound("gm_electric_guitar_clean")
   .vowel("o") 
   .fmdecay("<.01 .05 .1 .2>")
-  .detune(sine.range(-10, 30).slow(4)) // Slightly wider detune for more dizziness
+  .detune(sine.range(-10, 30).slow(4)) 
   .lpf(tri.range(400, 500).slow(8))
   .delay(0).delayfb(0.65) // Off-grid delay times create a hypnotic, rhythmic overlap
   .room(1).size(1) 
