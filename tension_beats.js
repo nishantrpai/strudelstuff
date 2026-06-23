@@ -37,8 +37,7 @@ const violinbeats = (run(2))
 
 const tribeats = (run(2))
   .scale("<c2 f2>:minor:pentatonic")
-  .s("gm_xylophone")
-  .vib(2)
+  .s("gm_overdriven_guitar")
   .delay(0.7)
   .lpf(500)
 
@@ -49,11 +48,16 @@ const tribeats = (run(2))
 let silence = s("piano").never()
 
 $: arrange(
-  // [1, beats],
-  [2, stack(beats, sawtones, sawpiano, violinbeats, tribeats)],
+  [4, stack(beats, tribeats)],
+  [4, stack(beats, sawtones, tribeats)],
+  [32, stack(beats, sawtones, violinbeats, tribeats)]
+  
   // [999, silence]
 )
 
+
+
+all(x => x._pianoroll())
 
 
 all(x => x._pianoroll())
