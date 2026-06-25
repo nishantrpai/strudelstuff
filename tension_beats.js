@@ -1,4 +1,5 @@
 // was trying to make a beat for eissa, ended up here. https://x.com/PaiNishant/status/2069434123803062419
+// visual reference::https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWZ5ZTM5OHAyc2Rmem44cm5vandyZ2ltdmdzdHl0M2plMXd0enJ2OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ft23xmPuh3MhG/giphy.gif
 setcpm(120/4)
 
 // let beats = 
@@ -48,7 +49,7 @@ const tribeats = (run(2))
   .s("gm_overdriven_guitar")
   .transpose(32)
   .delay(0.7)
-  .lpf(500)
+  .lpf(700)
 
 
 
@@ -56,15 +57,73 @@ const tribeats = (run(2))
 let silence = s("piano").never()
 
 $: arrange(
-  // [2, stack(beats).gain(0.1)],
-  // [2, stack(beats, tribeats, sawtones.slow(4)).gain(0.1)],
-  // [8, stack(beats, tribeats, sawtones.slow(2)).gain(0.2)],
-  // [4, stack(beats, sawtones, tribeats)],
-  [32, stack(beats, sawtones, violinbeats, tribeats.gain(0.45), sawpiano)],
-  // [2, stack(beats, sawtones, violinbeats, tribeats.gain(0.45), sawpiano).gain(segment(8, range(0.4, 0, saw)))],
-  // [999, silence]
-)
 
+  // engine
+  [2,
+    beats.gain(0.15).delay(0)
+  ],
+
+  // introduce the motif quietly
+  [4,
+    stack(
+      beats.gain(0.15),
+      sawtones.s("gm_overdriven_guitar").gain(0.3)
+    )
+  ],
+
+  // motif becomes the focus
+  [4,
+    stack(
+      beats.gain(0.15),
+      sawtones.s("gm_overdriven_guitar saw").gain(0.5)
+    )
+  ],
+
+  // pulse joins
+  [8,
+    stack(
+      beats,
+      sawtones,
+      tribeats.gain(0.2)
+    )
+  ],
+
+  // atmosphere
+  [8,
+    stack(
+      beats,
+      sawtones,
+      tribeats.gain(0.3),
+      sawpiano.gain(0.08)
+    )
+  ],
+
+  // peak
+  [16,
+    stack(
+      beats,
+      sawtones,
+      tribeats.gain(0.35),
+      sawpiano.gain(0.1),
+      violinbeats.gain(0.08)
+    )
+  ],
+
+  // exit
+  [4,
+    stack(
+      beats,
+      sawtones.s("saw gm_overdriven_guitar").gain(0.08)
+    )
+  ],
+
+  [2,
+    beats.gain(0.15).delay(0)
+  ],
+
+  [1, silence]
+
+)
 
 
 all(x => x._pianoroll())
