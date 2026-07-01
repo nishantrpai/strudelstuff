@@ -21,9 +21,10 @@ img.style.width = '100vw';
 img.style.height = '100vh';
 img.style.objectFit = 'cover';
 img.style.zIndex = '-1'; 
-img.style.opacity = '0.1'; // Change this number to instantly adjust transparency!
+img.style.opacity = '0.2'; // Change this number to instantly adjust transparency!
 
 
+// switch from kalimba -> supersaw for entry
 $: note("[~ [<[d3,a3,f4]!3 [d3,bb3,g4]!1> ~]]*2")
   .sound("supersaw").lpf(800)
   .fast(2)
@@ -36,7 +37,11 @@ $: note("[~ [<[d3,a3,f4]!3 [d3,bb3,g4]!1> ~]]*2")
   .degradeBy(0.01)
 
 
-$: note("[~ c2 ~ f2]").sound("bd:2").lpf(100).fast(2).gain(.125)
+$: note("[~ c2 ~ f2]").sound("bd:2 bd:4").lpf(100).fast(2).gain(.125)
+
+
+$: note("[c2 f2]").sound("gm_drawbar_organ").lpf(200).slow(4).gain(.25)
+
 
 
 all(x => x._pianoroll())
