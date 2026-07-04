@@ -26,21 +26,36 @@ img.style.opacity = '0.2'; // Change this number to instantly adjust transparenc
 
 // switch from kalimba -> supersaw for entry
 $: note("[~ [<[d3,a3,f4]!3 [d3,bb3,g4]!1> ~]]*2")
-  .sound("supersaw").lpf(800)
+  .sound("gm_melodic_tom").lpf(800)
   .fast(2)
   .attack(.1)
   .decay(.1)
   .sustain(.25)
   .release(.2)
   .delay(.5)
-  .gain(.23)
+  .gain(.3)
   .degradeBy(0.01)
 
 
 $: note("[~ c2 ~ f2]").sound("bd:2 bd:4").lpf(100).fast(2).gain(.125)
 
 
-$: note("[c2 f2]").sound("gm_drawbar_organ").lpf(200).slow(4).gain(.25)
+$: note("[c2 f2]").sound("gm_taiko_drum").lpf(500).slow(4).gain(.5)
+
+$: note("<d5 c5>*2 e5 a5 g5")
+  .sound("gm_guitar_harmonics:1")
+  .transpose("<-32!4 -34!4>") // Plays both transpositions at once
+  .fast(4)
+  .lpf(1200)            // Low-pass filter cuts harsh high frequencies
+  .gain(0.08)           // Reduced gain to prevent clipping/distortion
+  .room(0.4)
+  .attack(.1)
+  .decay(.1)
+  .sustain(.25)
+  .release(.2)
+  .delay(.25)
+  .gain(.3)
+  .degradeBy(0.01)
 
 
 
