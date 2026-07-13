@@ -39,6 +39,9 @@ const pad2 = note(`c f <b , g> e`)
   .slow(2)
   .delay(1)
 
+const buildup = s("supersaw").seg(16).lpf(tri.range(100, 200).slow(2))
+
+
 const silence = s("bd").never()
 
 $: arrange(
@@ -62,13 +65,13 @@ $: arrange(
     stack(pad.fast(4), beat, pad2.s("gm_distortion_guitar"))
   ],
    [4,
-    stack(pad.fast(4), beat, pad2.s("saw"))
+    stack(pad.fast(4), beat, pad2.s("saw"), buildup)
   ],
   [4,
-    stack(pad.fast(4), beat, pad2.s("saw").delay(2))
+    stack(pad.fast(4), beat, pad2.s("saw").delay(2), buildup)
   ],
     [4,
-    stack(pad.fast(4), beat, pad2.s("saw").fast(4))
+    stack(pad.fast(4), beat, pad2.s("saw").fast(4), buildup.fast(4))
   ],
 
 )
