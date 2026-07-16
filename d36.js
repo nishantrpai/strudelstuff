@@ -1,5 +1,5 @@
 // ref: https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTFlbWdjOHAzMW12Ym84MmUwM2Y5aWMzNXMxbWZkZTNweWYzdmZoeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/B1qmVjLOGejRjmmLJL/giphy.gif
-
+//tags: against all odds, space
 
 let img = document.querySelector('.horse-bg');
 
