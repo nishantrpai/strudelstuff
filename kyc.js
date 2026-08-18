@@ -1,27 +1,20 @@
-/* 
-seed: https://x.com/jackbutcher/status/2089118800197153146
-*/
-
-// universe white part 
-// $: sound("bd*2,<white pink brown>*8").decay(.04).sustain(0)
+// universe didn't want to take part in this one lol
+// $: note("c4 f4,g4,d#4 c##4").sound("piano").lpf(200)
 
 // mind
-// trying to get your attention
-// generate fears, desires and dreams
-// $: note("c4!2 f4!2 g4!2,c4 g4").sound("gm_distortion_guitar").slow(2).adsr(".5")
+// anagram for fear
+$: note("f4 e4 a4 d4").sound("piano1").lpf(200).degradeBy(0.1)
 
 // heart
-$: sound("bd*2*2,<pink pink brown>*8").lpf(500).sustain(0.25)
+// 2 beats and 1 beat
+$: sound("[sd:2!2 bd:4]").lpf(200)
 
 // soul
-// $: note("c4 g4").sound("gm_church_organ").slow(2).adsr(".75").lpf(400)
+// anagram for god
+$: note("g6 ~ d6").sound("piano").lpf(200).slow(2)
 
-// system trying to map
-// fears: minor chords
-// desires: major chords
-// beliefs: flat chords
-// $: note("[c4 d#4 b4 g#4 a#4]*2").sound("sawtooth").adsr(".5").lpf(900)
+// system, trying to map everything and everyone
+// fear in another variation embedded into the system
+$: note("[f4 e4]!2 [a4, d4]").sound("gm_glockenspiel").lpf(500).slow(2)
 
-
-// brb
 all(x => x._pianoroll())
