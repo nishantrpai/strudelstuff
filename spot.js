@@ -4,16 +4,16 @@
 setCps(120/60/4)
 
 
-$bd: n(accelerationX.segment(4).range(0,64)).seg(0).scale("C2:minor").s("bd:4*4,bd:2*4,sd:4").sometimes(add(note("<12 14>"))).lpf(1200)._scope()
+$bd: n(accelerationX.segment(4).range(0,64)).seg(4).scale("C2:minor").s("bd:4*4,bd:2*4,sd:4").sometimes(add(note("<12 14>"))).lpf("800:10")._scope()
 
-$cp: s("[yamahatg33_sh*4, cp*2]*1").seg(0).lpf(1200)._scope()
+$cp: s("[yamahatg33_sh*4, cp*2]*2").lpf(1200)._scope()
 
-$beats2: note("<[c,eb] [a,f]>").arp("0!1 1!1").seg(0).clip(1).s("<saw triangle>").scale("c:minor:pentatonic").fast(.5).lpf("1200:0").orbit(5)._scope()
+$beats2: note("<[c,eb] [a,f]>").arp("0!1 1!1").seg(0).clip(1).s("<saw triangle>").scale("c:minor:pentatonic").fast(.5).lpf("800:0").orbit(5)._scope()
 
 
 
 $supersaw: note("<[c,eb,g]!2 [c,f,ab] [d,f,ab]>")
-.arp("0!4 [0,2]!2 1 [0,2]").seg(0).clip("<1 2>").s("<piano>").sometimes(add(note("<12 24>"))).fast(2).distort(.5).lpf("1200:0").delay(.25)._scope()
+.arp("0!4 [0,2]!2 1 [0,2]").seg(8).clip("<1 .25>").s("<supersaw!7 saw>").sometimes(add(note("<-12 -24>"))).fast(2).distort(.5).lpf("1200:0").delay(.25)._scope()
 
 
 
@@ -67,11 +67,11 @@ supersaw
 beats2: is mostly a silent partner, but it adds a very ominious tone (commented for now)
 
 potential arrangement:
-- start solo piano : spot wakes up and starts working
+- start solo supersaw as piano : spot wakes up and starts working, low notes -12,-24
 - clap joins : solo spot dancing
 - beat joins : multi spots dancing
 - ominious beats join : all spots dancing
 - some more spot clips, claps get fast beats get faster
+- supersaw notes go up to 12,24
 - need a buildup for something, more robots maybe
-
 */
