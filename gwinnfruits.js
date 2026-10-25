@@ -1,13 +1,19 @@
-$: s("bd:6!4,cp*2").lpf(sine.range(800,2000)).degradeBy(.05)
+// something arose when i heard these notes on warm.strudel.cc this is a translation of that
 
-$: note("c2 [c2,<<g3 g2> <e2 e3> <b2 b3>>]")
+$beats: s("sbd!4,cp*2").lpf(sine.rangex(400,800))
+
+$tune: note("c2 [c2,<<g3 g2> <e2 e3> <b2 b3>>]")
     .add("<0 <1 -1>>")
     .add("0,7").clip("<1 2>")
-    .sound("<gm_acoustic_bass, sine>")
+    .s("<gm_acoustic_bass, triangle>")
+    // .s("<triangle, sine>")
     // .delay("0.65:0.25:0.9 0.65:0.125:0.7")
+    // .fast(2).slow(1.5)
     .fast(4).slow(1.5)
     .lpf(sine.rangex(800,1200))
-    .lpenv(sine.range(-1,1))
+    .room(.8).rsize(12)
+    // .lpf(sine.rangex(200,300))
+    // .lpenv(sine.range(-1,1))
     .hpf(400)._scope()
 
-$: s("triangle").scale("c4:minor:pentatonic").beat("2,4,8,12",16).clip(4)
+$bg: note("c2 f2 e2").s("sine").lpf(sine.rangex(400,800)).seg(4).slow(2)._scope()
