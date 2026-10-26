@@ -3,9 +3,9 @@
 
 // beats
 $: arrange(
-  [10, s("sbd!4").mask("<0@6 1@6>")],
-  [20,s("[sbd!4, cp*2]")],
-  [5,s("[kalimba!4]")],
+  // [10, s("sbd!4").mask("<0@6 1@6>")],
+  // [20,s("[sbd!4, cp*2]")],
+  [8,s("[kalimba!4]")],
   [20,s("[sbd!4, cp*2]")]
   ).lpf(sine.range(1200,1500))
 
@@ -25,7 +25,8 @@ $tune: note("c2 [c2,<<g3 g2> <e2 e3> <b2 b3>>]")
     .hpf(400)
 
 // the breeze gently greets the person
-$bg: note("c2 g2 e2 b2").s("gm_drawbar_organ").lpf(sine.rangex(400,800)).mask("<0@4 1@100>").seg(4).slow(2)
+$bg: note("c2 g2 e2 b2").s("gm_drawbar_organ").lpf(sine.rangex(400,800)).mask("<0@2 1@100>").delay("<[0.65:0.25:0.5 0.65:0.125:0.75]@1000>").delayfeedback("<.125 .15 .25>")
+.seg(4).slow(2)
 
 
-all(x => x.gain(.125))
+// all(x => x.gain(.125))
